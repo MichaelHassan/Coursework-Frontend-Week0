@@ -54,13 +54,4 @@ export class Task {
         console.log('\x1b[36m%s\x1b[0m',this);
     }
 
-    // toJSON(): object {
-    //     return {
-    //         id: this.id,
-    //         name: this.name,
-    //         description:this.description,
-    //         status: this.status,
-    //         _id:Task._id
-    //     };
-    // }
 }

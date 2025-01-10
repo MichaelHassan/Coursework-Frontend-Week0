@@ -45,13 +45,4 @@ export class Project {
             `Project ID: ${this.id} - Name: ${this.name} - No.Tasks: ${this.tasks.length} `);
     }
 
-    // toJSON(): object {
-    //     return {
-    //         id: this.id,
-    //         name: this.name,
-    //         tasks:this.tasks.map(task => task.toJSON()),
-    //         _id: Project._id 
-    //     };
-    // }
-
 }
