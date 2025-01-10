@@ -16,7 +16,7 @@ export class TaskTracker {
     constructor(){
         this.fileHandler = new FileHandler() ;
         try {
-            this.projects = this.fileHandler.readJSON() || []; 
+            this.projects = this.fileHandler.readJSON() ; 
             console.log('\x1b[36m%s\x1b[0m',"Saved Projects:");
             this.display(); 
         } catch (error: unknown) { 

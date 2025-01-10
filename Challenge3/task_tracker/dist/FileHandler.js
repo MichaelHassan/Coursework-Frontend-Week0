@@ -35,14 +35,31 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.FileHandler = void 0;
 const fs = __importStar(require("fs"));
+const Project_1 = require("./Project");
+const Task_1 = require("./Task");
 class FileHandler {
     writeJSON(projects) {
         fs.writeFileSync('data/projects.json', JSON.stringify(projects, null, 2));
         console.log("Projects have been exported to projects.json.");
     }
     readJSON() {
-        const rawData = fs.readFileSync('data/projects.json', 'utf-8');
-        return JSON.parse(rawData);
+        let projects = [];
+        try {
+            const rawData = fs.readFileSync('data/projects.json', 'utf-8');
+            let jsonProjects = JSON.parse(rawData);
+            jsonProjects.forEach((project) => {
+                let realProject = new Project_1.Project(project.name);
+                project.tasks.forEach((task) => {
+                    realProject.addTask(new Task_1.Task(task.name, task.description, task.status));
+                });
+                projects.push(realProject);
+            });
+        }
+        catch (error) {
+            console.error("Error reading JSON file:", error.message);
+            return [];
+        }
+        return projects;
     }
 }
 exports.FileHandler = FileHandler;
