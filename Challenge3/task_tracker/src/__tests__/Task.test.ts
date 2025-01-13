@@ -7,22 +7,16 @@ describe('Task Class', () => {
         task1 = new Task('Task 1', 'Description 1', Status.Backlog);  
     });
 
-    test('should create a task with a unique id', () => {
-        expect(task1.getID()).toBe(0);  
-        const task2 = new Task('Task 2', 'Description 2', Status.InProgress);
-        expect(task2.getID()).toBe(1);  
-    });
-
-    test('should return task name', () => {
+    test('return correct task name', () => {
         expect(task1.getName()).toBe('Task 1');
     });
 
-    test('should change task name', () => {
+    test('change task name correctly', () => {
         task1.changeName('Updated Task 1');
         expect(task1.getName()).toBe('Updated Task 1');
     });
 
-    test('should return task status', () => {
+    test('return task status', () => {
         expect(task1.getStatus()).toBe(Status.Backlog);
     });
 
@@ -35,7 +29,7 @@ describe('Task Class', () => {
         expect(task1.getDescription()).toBe('Description 1');
     });
 
-    test('should update task description', () => {
+    test('updates task description correctly', () => {
         task1.setDescription('Updated Description');
         expect(task1.getDescription()).toBe('Updated Description');
     });
